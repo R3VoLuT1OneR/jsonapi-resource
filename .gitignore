@@ -1,0 +1,5 @@
+.idea
+.phpunit.cache
+docker-compose.override.yaml
+profiler
+vendor

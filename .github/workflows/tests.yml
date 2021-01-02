@@ -1,0 +1,36 @@
+name: Tests
+on: [push]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        phpVersion:
+          - 8.0
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+      - name: Composer Install
+        uses: php-actions/composer@v5
+        with:
+          php_version: ${{ matrix.phpVersion }}
+
+      - name: PHPStan
+        uses: php-actions/composer@v5
+        with:
+          command: run phpstan -- --no-progress
+          php_version: ${{ matrix.phpVersion }}
+
+      - name: Pest PHP
+        uses: php-actions/composer@v5
+        with:
+          command: run pest
+          php_version: ${{ matrix.phpVersion }}

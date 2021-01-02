@@ -1,0 +1,66 @@
+{
+  "data": [
+    {
+      "type": "articles",
+      "id": "1",
+      "attributes": {
+        "getTitle": "PHP JSON:API Resource"
+      },
+      "relationships": {
+        "author": {
+          "data": {
+            "type": "people",
+            "id": "17"
+          },
+          "links": {
+            "self": "/articles/1/relationships/author",
+            "related": "/articles/1/author"
+          }
+        }
+      },
+      "links": {
+        "self": "/articles/1"
+      }
+    },
+    {
+      "type": "articles",
+      "id": "2",
+      "attributes": {
+        "getTitle": "How to create JSON:API"
+      },
+      "relationships": {
+        "author": {
+          "data": {
+            "type": "people",
+            "id": "18"
+          },
+          "links": {
+            "self": "/articles/2/relationships/author",
+            "related": "/articles/2/author"
+          }
+        }
+      },
+      "links": {
+        "self": "/articles/2"
+      }
+    }
+  ],
+  "included": [
+    {
+      "type": "people",
+      "id": "17",
+      "attributes": [],
+      "links": {
+        "self": "/people/17"
+      }
+    },
+    {
+      "type": "people",
+      "id": "18",
+      "attributes": [],
+      "links": {
+        "self": "/people/18"
+      }
+    }
+  ]
+}

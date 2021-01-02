@@ -1,0 +1,25 @@
+name: Vuepress Generate
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('docs/package-lock.json') }}
+
+      - name: Vupress Deploy
+        uses: jenkey2011/vuepress-deploy@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_REPOSITORY: R3VoLuT1OneR/jsonapi-resource
+          BUILD_SCRIPT: cd docs && npm install && npm run build
+          BUILD_DIR: dist

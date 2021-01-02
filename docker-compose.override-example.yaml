@@ -1,0 +1,24 @@
+# Copy this file to "docker-compose.local.yaml" file and setup your local environment settings.
+# When running docker-compose both config files must be provided:
+#
+# Example:
+#   docker-compose -f docker-compose.yaml -f docker-compose.local.yaml config
+#     OR
+#   COMPOSE_FILE=docker-compose.yaml:docker-compose.local.yaml docker-compose config
+#
+version: '3.2'
+
+services:
+  app:
+    # We must put here username or UID of host machine user.
+    # As we mount code folder to docker container and want to keep same file permissions between container and host.
+    user: "1000"
+
+    build:
+      args:
+        # We can enable xdebug or profiler by setting this argument and rebuilding the image
+        #
+        # base - no xdebug enabled
+        # xdebug - xdebug enabled
+        # profiler - xdebug profiler enabled
+        IMAGE_TYPE: xdebug

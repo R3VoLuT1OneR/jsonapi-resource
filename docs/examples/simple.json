@@ -1,0 +1,12 @@
+{
+  "data": {
+    "type": "people",
+    "id": "1",
+    "attributes": {
+      "name": 31
+    },
+    "links": {
+      "self": "/people/1"
+    }
+  }
+}

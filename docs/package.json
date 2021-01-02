@@ -1,0 +1,15 @@
+{
+  "name": "jsonapi-resource-docs",
+  "version": "0.0.1",
+  "description": "PHP 8.0 Library for mapping and serializing PHP class into JSON:API resource.",
+  "main": "index.js",
+  "repository": "https://github.com/R3VoLuT1OneR/jsonapi-resource",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src -d dist"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
